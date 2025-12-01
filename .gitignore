@@ -1,16 +1,15 @@
 # 忽略所有文件
-*
 
 # 不忽略 main.c
-!mdk/
-!mdk/**
+mdk/
+mdk/**
 
 # 不忽略 lv_100ask_lesson_demos 文件夹
-!resources/
-!resources/**
+resources/
+resources/**
 
 
-# 不忽略 .gitignore 本身
-!.gitignore
+
+
 
 
