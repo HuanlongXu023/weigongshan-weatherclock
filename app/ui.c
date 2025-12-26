@@ -58,7 +58,7 @@ static void ui_func(void *param)
     while (1)
     {
         xQueueReceive(ui_queue, &msg, portMAX_DELAY);
-        
+        // st7789_fill_color  st7789是lcd显示屏的驱动芯片
         switch (msg.action)
         {
         case UI_ACTION_FILL_COLOR:

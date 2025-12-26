@@ -5,7 +5,7 @@
 #include "ui.h"
 #include "wifi.h"
 #include "page.h"
-
+ 
 extern void board_lowlevel_init(void);
 extern void board_init(void);
 
@@ -14,7 +14,7 @@ static void main_init(void *param)
     board_init();
     ui_init();
     
-    welcome_page_display();
+    welcome_page_display(); 
     
     wifi_init();
     wifi_page_display();
@@ -25,7 +25,7 @@ static void main_init(void *param)
     
     vTaskDelete(NULL);
 }
-
+  
 int main(void)
 {
     board_lowlevel_init();
@@ -40,3 +40,5 @@ int main(void)
         ; // code should not run here
     }
 }
+
+

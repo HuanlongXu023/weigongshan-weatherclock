@@ -7,7 +7,7 @@
 #include "console.h"
 #include "rtc.h"
 #include "aht20.h"
-
+ 
 void board_lowlevel_init(void)
 {
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
@@ -28,7 +28,7 @@ void board_lowlevel_init(void)
     while(RCC_GetFlagStatus(RCC_FLAG_LSERDY) == RESET);
     RCC_RTCCLKConfig(RCC_RTCCLKSource_LSE);
 }
-
+  
 void board_init(void)
 {
     tim_delay_init();

@@ -1,0 +1,51 @@
+xtimercreate
+wifi time inner outdoor
+work_cb
+workqueue_run
+    xqueuemessagesend (,msg)
+    msg(app_work,job)
+
+work_fun
+    work_queue
+    msg.aaa(msg.param)
+    (inner outdoor time wifi)update
+    ui_(write_string draw_image fill_color)
+    
+
+ui_fun
+    ui_queue
+    st7789_(write_string)
+
+
+inner_update()
+{
+    设置变量
+
+    开启测量
+
+    等待测量
+
+    读取测量
+
+    确定是否更新
+
+    保存值
+
+    更新
+
+}
+
+
+获取天气数据
+
+解析天气数据
+
+比较是否发生改变
+    保存当前的天气信息
+    main_page_redraw
+    更新屏幕显示的
+
+
+
+
+

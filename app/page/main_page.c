@@ -10,23 +10,23 @@
 static const uint16_t color_bg_time = mkcolor(248, 248, 248);
 static const uint16_t color_bg_inner = mkcolor(136, 217, 234);
 static const uint16_t color_bg_outdoor = mkcolor(254, 135, 75);
-
+ 
 void main_page_display(void)
 {
     ui_fill_color(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, mkcolor(0, 0, 0));
     
     do {
         ui_fill_color(15, 15, 224, 154, color_bg_time);
-        // wifiÍ¼±ê
+        // wifiÍ¼ï¿½ï¿½
         ui_draw_image(23, 20, &icon_wifi);
         main_page_redraw_wifi_ssid(WIFI_SSID);
         ui_write_string(25, 42, "--:--", mkcolor(0, 0, 0), color_bg_time, &font76_maple_extrabold);
-        ui_write_string(35, 121, "----/--/-- ÐÇÆÚËÄ", mkcolor(143, 143, 143), color_bg_time, &font20_maple_bold);
+        ui_write_string(35, 121, "----/--/-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", mkcolor(143, 143, 143), color_bg_time, &font20_maple_bold);
     } while (0);
     
     do {
         ui_fill_color(15, 165, 114, 304, color_bg_inner);
-        ui_write_string(19, 170, "ÊÒÄÚ»·¾³", mkcolor(0, 0, 0), color_bg_inner, &font24_maple_semibold);
+        ui_write_string(19, 170, "ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½", mkcolor(0, 0, 0), color_bg_inner, &font24_maple_semibold);
         ui_write_string(86, 191, "C", mkcolor(0, 0, 0), color_bg_inner, &font32_maple_bold);
         ui_write_string(91, 262, "%", mkcolor(0, 0, 0), color_bg_inner, &font32_maple_bold);
         main_page_redraw_inner_temperature(999.9f);
@@ -37,7 +37,7 @@ void main_page_display(void)
         ui_fill_color(125, 165, 224, 304, color_bg_outdoor);
         ui_write_string(192, 189, "C", mkcolor(0, 0, 0), color_bg_outdoor, &font32_maple_bold);
         ui_draw_image(139, 239, &icon_wenduji);
-        main_page_redraw_outdoor_city("ºÏ·Ê");
+        main_page_redraw_outdoor_city("ï¿½Ï·ï¿½");
         main_page_redraw_outdoor_temperature(999.9f);
         main_page_redraw_outdoor_weather_icon(-1);
     } while (0);
@@ -61,14 +61,14 @@ void main_page_redraw_time(rtc_date_time_t *time)
 void main_page_redraw_date(rtc_date_time_t *date)
 {
     char str[18];
-    snprintf(str, sizeof(str), "%04u/%02u/%02u ÐÇÆÚ%s", date->year, date->month, date->day,
+    snprintf(str, sizeof(str), "%04u/%02u/%02u ï¿½ï¿½ï¿½ï¿½%s", date->year, date->month, date->day,
         date->weekday == 1 ? "Ò»" :
-        date->weekday == 2 ? "¶þ" :
-        date->weekday == 3 ? "Èý" :
-        date->weekday == 4 ? "ËÄ" :
-        date->weekday == 5 ? "Îå" :
-        date->weekday == 6 ? "Áù" :
-        date->weekday == 7 ? "Ìì" : "X");
+        date->weekday == 2 ? "ï¿½ï¿½" :
+        date->weekday == 3 ? "ï¿½ï¿½" :
+        date->weekday == 4 ? "ï¿½ï¿½" :
+        date->weekday == 5 ? "ï¿½ï¿½" :
+        date->weekday == 6 ? "ï¿½ï¿½" :
+        date->weekday == 7 ? "ï¿½ï¿½" : "X");
     ui_write_string(35, 121, str, mkcolor(143, 143, 143), color_bg_time, &font20_maple_bold);
 }
 
@@ -120,7 +120,7 @@ void main_page_redraw_outdoor_weather_icon(const int code)
         icon = &icon_leizhenyu;
     else if (code == 20 || code == 21 || code == 22 || code == 23 || code == 24 || code == 25)
         icon = &icon_zhongxue;
-    else // ÑïÉ³¡¢Áú¾í·çµÈ
+    else // ï¿½ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         icon = &icon_na;
     ui_draw_image(166, 240, icon);
 }

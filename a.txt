@@ -1,0 +1,88 @@
+定时器:
+    outdoor_update_timer = xTimerCreate("outdoor update", pdMS_TO_TICKS(OUTDOOR_UPDATE_INTERVAL), pdTRUE, outdoor_update, work_timer_cb);
+    inner outdoor wifi time 这4个id的定时器每隔一段时间触发一次，写队列
+    work_timer_cb(app_work job) { workqueue_run {写队列} }
+        队列中存放的  msg(app_work,job)(inner outdoor time wifi)_update 包含 main_page_redraw
+
+
+    work_func(任务) 
+        xQueueReceive(work_msg_queue, &msg, portMAX_DELAY);
+    msg.work(msg.param);
+
+
+    main_page_redraw 包含(ui_fill_color  write_string  draw_image) 写队列
+    ui.c   ui_func(任务)   
+        xQueueReceive(ui_queue, &msg, portMAX_DELAY);
+        读取队列数据后，实际执行的函数
+        st7789_(fill_color write_string draw_image)
+
+    wifi_page_display
+    welcome_page_display 
+    main_page_display
+
+
+
+定时器作为主动源   两个任务之间通信通过队列通信
+xtimerhandle
+
+创建4个定时器 
+    inner outdoor wifi time update_timer 
+    work_cb  (workqueue_run    update(inner ....))
+
+    work_func  
+    xQueueReceive
+
+    update(inner ...)  main_page_redraw... (ui_fill_color write_string draw_image)
+    
+    ui_queue msg.action  ....   UI_ACTION_FILL_COLOR
+
+    ui_func   xQueueReceive 
+    case(msg.action)   
+
+    st7789_(fill_color ...)
+
+
+    ui_func 等待 work_func  ..._update_timer
+
+    work_cb work_queue_run
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

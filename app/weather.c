@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "weather.h"
-
+ 
 bool parse_seniverse_response(const char *response, weather_info_t *info)
 {
 	response = strstr(response, "\"results\":");

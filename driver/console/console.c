@@ -86,6 +86,7 @@ void console_init(void)
     console_io_init();
 }
 
+
 void console_write(const char str[])
 {
     uint32_t len = strlen(str);
@@ -137,3 +138,5 @@ void DMA2_Stream7_IRQHandler(void)
         DMA_ClearITPendingBit(DMA2_Stream7, DMA_IT_TCIF7);
     }
 }
+
+

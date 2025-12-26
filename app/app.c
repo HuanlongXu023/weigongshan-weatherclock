@@ -12,7 +12,7 @@
 #include "weather.h"
 #include "page.h"
 #include "app.h"
-
+  
 #define MILLISECONDS(x) (x)
 #define SECONDS(x)      MILLISECONDS((x) * 1000)
 #define MINUTES(x)      SECONDS((x) * 60)
@@ -136,6 +136,7 @@ static void time_update(void)
     main_page_redraw_date(&date);
 }
 
+
 static void inner_update(void)
 {
     static float last_temperature, last_humidity;
@@ -172,7 +173,7 @@ static void inner_update(void)
     main_page_redraw_inner_temperature(temperature);
     main_page_redraw_inner_humidity(humidity);
 }
-
+ 
 static void outdoor_update(void)
 {
     static weather_info_t last_weather = { 0 };
@@ -243,3 +244,8 @@ void app_init(void)
     xTimerStart(inner_update_timer, 0);
     xTimerStart(outdoor_update_timer, 0);
 }
+
+
+
+
+

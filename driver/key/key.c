@@ -10,27 +10,27 @@
 
 void key_init(key_desc_t key)
 {
-    // GPIO³õÊ¼»¯½á¹¹ÌåÄ£°å
+    // GPIOåˆå§‹åŒ–ç»“æž„ä½“æ¨¡æ¿
     GPIO_InitTypeDef GPIO_InitStructure;
     GPIO_StructInit(&GPIO_InitStructure);
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
     GPIO_InitStructure.GPIO_Speed = GPIO_Medium_Speed;
     
-    // EXTIÖÐ¶Ï³õÊ¼»¯½á¹¹ÌåÄ£°å
+    // EXTIä¸­æ–­åˆå§‹åŒ–ç»“æž„ä½“æ¨¡æ¿
     EXTI_InitTypeDef EXTI_InitStructure;
     EXTI_StructInit(&EXTI_InitStructure);
     EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
     EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
     EXTI_InitStructure.EXTI_LineCmd = ENABLE;
     
-    // EXTIÖÐ¶ÏÓÅÏÈ¼¶ÅäÖÃ½á¹¹ÌåÄ£°å
+    // EXTIä¸­æ–­ä¼˜å…ˆçº§é…ç½®ç»“æž„ä½“æ¨¡æ¿
     NVIC_InitTypeDef NVIC_InitStructure;
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 5;
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     
-    // KEY1³õÊ¼»¯
+    // KEY1åˆå§‹åŒ–
     GPIO_InitStructure.GPIO_Pin = key->pin;
     GPIO_Init(key->port, &GPIO_InitStructure);
     SYSCFG_EXTILineConfig(key->exti_port_src, key->exti_pin_src);

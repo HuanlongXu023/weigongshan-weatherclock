@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stm32f4xx.h": "c",
+        "tim_delay.h": "c",
+        "wifi.h": "c"
+    }
+}
